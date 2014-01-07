@@ -29,8 +29,8 @@ public class HttpStaticFileServer {
     }
 
     public void run() throws Exception {
-        EventLoopGroup bossGroup = new NioEventLoopGroup();
-        EventLoopGroup workerGroup = new NioEventLoopGroup();
+        EventLoopGroup bossGroup = new NioEventLoopGroup(10);
+        EventLoopGroup workerGroup = new NioEventLoopGroup(1);
         try {
             ServerBootstrap b = new ServerBootstrap();
             b.group(bossGroup, workerGroup)
